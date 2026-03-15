@@ -1,25 +1,22 @@
 class Melina < Formula
   desc "Claude Code process monitor — track sessions, teammates, MCP servers, and orphans"
   homepage "https://github.com/vinhnxv/melina"
-  version "0.3.3"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
-    on_arm do
-      url "https://github.com/vinhnxv/melina/releases/download/v0.3.3/melina-v0.3.3-aarch64-apple-darwin.tar.gz"
-      sha256 "5696859037f78ffc34959633dac921ce7f465de52acda8ffc7d596c5da15ff80"
-    end
-    on_intel do
-      url "https://github.com/vinhnxv/melina/releases/download/v0.3.3/melina-v0.3.3-x86_64-apple-darwin.tar.gz"
-      sha256 "d3ed69990b990173c7ae14dc869775a0fcb45402a4de0dea755397565224136b"
+    if Hardware::CPU.arm?
+      url "https://github.com/vinhnxv/melina/releases/download/v0.4.0/melina-v0.4.0-aarch64-apple-darwin.tar.gz"
+      sha256 "c7ae7db2a97211511a4da160520680d550567e36c61f820b408f37c1e1aa3c6a"
+    else
+      url "https://github.com/vinhnxv/melina/releases/download/v0.4.0/melina-v0.4.0-x86_64-apple-darwin.tar.gz"
+      sha256 "46e4c652aa60536f30daa53a2fc7f4a95214a594d3de41bfb7f084d16078da3e"
     end
   end
 
   on_linux do
-    on_intel do
-      url "https://github.com/vinhnxv/melina/releases/download/v0.3.3/melina-v0.3.3-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3aa0ff4fc443404d5939b2029cbb15dfb91cb81792bb168c42681a6c6646b153"
-    end
+    url "https://github.com/vinhnxv/melina/releases/download/v0.4.0/melina-v0.4.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "4c591a28e2a317329d46a19bd3a73464dabb20e769da985087789a3dbb317af3"
   end
 
   def install
