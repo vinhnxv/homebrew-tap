@@ -1,1 +1,33 @@
-Y2xhc3MgTWVsaW5hIDwgRm9ybXVsYQogIGRlc2MgIkNsYXVkZSBDb2RlIHByb2Nlc3MgbW9uaXRvciDigJQgdHJhY2sgc2Vzc2lvbnMsIHRlYW1tYXRlcywgTUNQIHNlcnZlcnMsIGFuZCBvcnBoYW5zIgogIGhvbWVwYWdlICJodHRwczovL2dpdGh1Yi5jb20vdmluaG54di9tZWxpbmEiCiAgdmVyc2lvbiAiMC40LjEiCiAgbGljZW5zZSAiTUlUIgoKICBvbl9tYWNvcyBkbwogICAgb25fYXJtIGRvCiAgICAgIHVybCAiaHR0cHM6Ly9naXRodWIuY29tL3ZpbmhueHYvbWVsaW5hL3JlbGVhc2VzL2Rvd25sb2FkL3YwLjQuMS9tZWxpbmEtdjAuNC4xLWFhcmNoNjQtYXBwbGUtZGFyd2luLnRhci5neiIKICAgICAgc2hhMjU2ICJjYzNkNDgxNzE0YmM5NzZjMGQ3MjU5ZTExYjE3NmZiZjk4MmM2M2VjZjU4ZDExZDRmYzY0YmNmNzI1MDQ5ZWE4IgogICAgZW5kCiAgICBvbl9pbnRlbCBkbwogICAgICB1cmwgImh0dHBzOi8vZ2l0aHViLmNvbS92aW5obnh2L21lbGluYS9yZWxlYXNlcy9kb3dubG9hZC92MC40LjEvbWVsaW5hLXYwLjQuMS14ODZfNjQtYXBwbGUtZGFyd2luLnRhci5neiIKICAgICAgc2hhMjU2ICIyZDI2MmJjNTE3OTM2M2EwYzYxMDE4ZDE0OWQzMjE3NWRkODdjNjY0MTUwYjRlNjY4NGMyMWNkM2M3MmIyYWRiIgogICAgZW5kCiAgZW5kCgogIG9uX2xpbnV4IGRvCiAgICAgc2hhMjU2ICJjYzNkNDgxNzE0YmM5NzZjMGQ3MjU5ZTExYjE3NmZiZjk4MmM2M2VjZjU4ZDExZDRmYzY0YmNmNzI1MDQ5ZWE4IgogICAgZW5kCiAgZW5kCgogIG9uX2xpbnV4IGRvCiAgICBvbl9pbnRlbCBkbwogICAgICB1cmwgImh0dHBzOi8vZ2l0aHViLmNvbS92aW5obnh2L21lbGluYS9yZWxlYXNlcy9kb3dubG9hZC92MC40LjEvbWVsaW5hLXYwLjQuMS14ODZfNjQtdW5rbm93bi1saW51eC1nbnUudGFyLmd6IgogICAgICBzaGEyNTYgImU0OTcwOTdiNDUyM2ZlODdmY2Y3Nzc4ODQwOWY3MjgwZTY1ZGI4NjliNDliNzQzY2I3NjU2MDgyNTFiZTNlNzYiCiAgICBlbmQKICBlbmQKCiAgZGVmIGluc3RhbGwKICAgIGJpbi5pbnN0YWxsICJtZWxpbmEiCiAgICBiaW4uaW5zdGFsbCAibWVsaW5hLWNsaSIKICBlbmQKCiAgdGVzdCBkbwogICAgc3lzdGVtIGJpbi8ibWVsaW5hLWNsaSIsICItLWhlbHAiCiAgZW5kCmVuZAo=
+class Melina < Formula
+  desc "Claude Code process monitor — track sessions, teammates, MCP servers, and orphans"
+  homepage "https://github.com/vinhnxv/melina"
+  version "0.4.1"
+  license "MIT"
+
+  on_macos do
+    on_arm do
+      url "https://github.com/vinhnxv/melina/releases/download/v0.4.1/melina-v0.4.1-aarch64-apple-darwin.tar.gz"
+      sha256 "cc3d481714bc976c0d7259e11b176fbf982c63ecf58d11d4fc64bcf725049ea8"
+    end
+    on_intel do
+      url "https://github.com/vinhnxv/melina/releases/download/v0.4.1/melina-v0.4.1-x86_64-apple-darwin.tar.gz"
+      sha256 "2d262bc5179363a0c61018d149d32175dd87c664150b4e6684c21cd3c72b2adb"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/vinhnxv/melina/releases/download/v0.4.1/melina-v0.4.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "e497097b4523fe87fcf77788409f7280e65db869b49b743cb765608251be3e76"
+    end
+  end
+
+  def install
+    bin.install "melina"
+    bin.install "melina-cli"
+  end
+
+  test do
+    system bin/"melina-cli", "--help"
+  end
+end
